@@ -290,6 +290,9 @@ def gen_set(targ, last_set):
 # 8. Define sweep function ====================================================================================================================<
 def sweep(direct, refresh_rate, trial, targ=targ, targ_rate=targ_rate, sweep_rate=sweep_rate,
           a1=a1, a2=a2, a3=a3, a4=a4, a5=a5, a6=a6, b1=b1, b2=b2, b3=b3, b4=b4, b5=b5, b6=b6):
+    
+    # Round sweep rate to nearest integer, as it is in units of frames.
+    sweep_rate = np.round(sweep_rate)
 
     # Initialize target cooldown timer; Start static period to load sweep
     if eye_tracking:
